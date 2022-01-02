@@ -71,8 +71,8 @@ public class BmsPostController extends BaseController {
     public ApiResult<String> delete(@RequestHeader(value = USER_NAME) String userName, @PathVariable("id") String id) {
         UmsUser umsUser = umsUserService.getUserByUsername(userName);
         BmsPost byId = iBmsPostService.getById(id);
-        Assert.notNull(byId, "来晚一步，话题已不存在");
-        Assert.isTrue(byId.getUserId().equals(umsUser.getId()), "你为什么可以删除别人的话题？？？");
+        Assert.notNull(byId, "来晚一步，文章已不存在");
+        Assert.isTrue(byId.getUserId().equals(umsUser.getId()), "你为什么可以删除别人的话题");
         iBmsPostService.removeById(id);
         return ApiResult.success(null,"删除成功");
     }

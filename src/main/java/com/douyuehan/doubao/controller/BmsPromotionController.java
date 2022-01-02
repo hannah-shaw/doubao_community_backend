@@ -24,4 +24,5 @@ public class BmsPromotionController extends BaseController {
         return ApiResult.success(list);
     }
 
+
 }

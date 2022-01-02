@@ -46,7 +46,7 @@ public class UmsUser implements Serializable {
 
     @Builder.Default
     @TableField("bio")
-    private String bio = "自由职业者";
+    private String bio = "求助者";
 
     @Builder.Default
     @TableField("score")
