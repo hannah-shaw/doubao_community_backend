@@ -2,6 +2,7 @@ package com.douyuehan.doubao.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douyuehan.doubao.common.api.ApiResult;
+import com.douyuehan.doubao.common.exception.ApiAsserts;
 import com.douyuehan.doubao.model.dto.CreateTopicDTO;
 import com.douyuehan.doubao.model.entity.BmsPost;
 import com.douyuehan.doubao.model.entity.UmsUser;
@@ -9,6 +10,7 @@ import com.douyuehan.doubao.model.vo.PostVO;
 import com.douyuehan.doubao.service.IBmsPostService;
 import com.douyuehan.doubao.service.IUmsUserService;
 import com.vdurmont.emoji.EmojiParser;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
@@ -72,7 +74,7 @@ public class BmsPostController extends BaseController {
         UmsUser umsUser = umsUserService.getUserByUsername(userName);
         BmsPost byId = iBmsPostService.getById(id);
         Assert.notNull(byId, "来晚一步，文章已不存在");
-        Assert.isTrue(byId.getUserId().equals(umsUser.getId()), "你为什么可以删除别人的话题");
+        Assert.isTrue(byId.getUserId().equals(umsUser.getId()), "没有权限");
         iBmsPostService.removeById(id);
         return ApiResult.success(null,"删除成功");
     }

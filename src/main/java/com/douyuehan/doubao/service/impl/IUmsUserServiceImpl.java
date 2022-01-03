@@ -1,6 +1,8 @@
 package com.douyuehan.doubao.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.douyuehan.doubao.common.exception.ApiAsserts;
 import com.douyuehan.doubao.jwt.JwtUtil;
@@ -30,10 +32,14 @@ import java.util.Date;
 @Transactional(rollbackFor = Exception.class)
 public class IUmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUser> implements IUmsUserService {
 
+    private static final int PAGESIZE = 10;
+
     @Autowired
     private BmsTopicMapper bmsTopicMapper;
     @Autowired
     private BmsFollowMapper bmsFollowMapper;
+    @Autowired
+    private UmsUserMapper umsUserMapper;
 
     @Override
     public UmsUser executeRegister(RegisterDTO dto) {
@@ -91,4 +97,6 @@ public class IUmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUser> imp
 
         return profile;
     }
+
+
 }

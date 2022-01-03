@@ -36,7 +36,7 @@ public class UmsUser implements Serializable {
 
     @Builder.Default
     @TableField("avatar")
-    private String avatar = "https://s3.ax1x.com/2020/12/01/DfHNo4.jpg";
+    private String avatar = "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png";
 
     @TableField("email")
     private String email;
@@ -46,7 +46,7 @@ public class UmsUser implements Serializable {
 
     @Builder.Default
     @TableField("bio")
-    private String bio = "求助者";
+    private String bio = "";
 
     @Builder.Default
     @TableField("score")
@@ -68,7 +68,7 @@ public class UmsUser implements Serializable {
     private Boolean status = true;
 
     /**
-     * 用户角色
+     * 用户角色 1：普通用户，0：管理员
      */
     @TableField("role_id")
     private Integer roleId;

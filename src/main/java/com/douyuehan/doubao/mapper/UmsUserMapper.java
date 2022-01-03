@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * 用户
  *
- * @author Knox 2020/11/7
+ * @author
  */
 @Repository
 public interface UmsUserMapper extends BaseMapper<UmsUser> {
