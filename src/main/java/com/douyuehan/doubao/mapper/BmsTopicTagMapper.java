@@ -11,7 +11,7 @@ import java.util.Set;
 @Repository
 public interface BmsTopicTagMapper extends BaseMapper<BmsTopicTag> {
     /**
-     * 根据标签获取话题ID集合
+     * 根据标签获取话题ID集合 实现定义在PostTag.xml里
      *
      * @param id
      * @return

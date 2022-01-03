@@ -14,7 +14,7 @@ import java.util.Map;
 public interface IBmsPostService extends IService<BmsPost> {
 
     /**
-     * 获取首页话题列表
+     * 获取首页话题列表 在IBmsPostServiceImpl实现
      *
      * @param page
      * @param tab

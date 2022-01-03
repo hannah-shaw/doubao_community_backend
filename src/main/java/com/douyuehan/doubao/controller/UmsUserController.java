@@ -67,12 +67,15 @@ public class UmsUserController extends BaseController {
                                                         @RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                                                         @RequestParam(value = "size", defaultValue = "10") Integer size) {
         Map<String, Object> map = new HashMap<>(16);
+        //获取用户信息
         UmsUser user = iUmsUserService.getUserByUsername(username);
         Assert.notNull(user, "用户不存在");
+        //获取该用户文章信息
         Page<BmsPost> page = iBmsPostService.page(new Page<>(pageNo, size),
                 new LambdaQueryWrapper<BmsPost>().eq(BmsPost::getUserId, user.getId()));
         map.put("user", user);
         map.put("topics", page);
+        //两个信息放入map
         return ApiResult.success(map);
     }
     @PostMapping("/update")

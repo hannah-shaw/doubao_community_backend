@@ -34,7 +34,7 @@ public class BmsPostController extends BaseController {
     public ApiResult<Page<PostVO>> list(@RequestParam(value = "tab", defaultValue = "latest") String tab,
                                         @RequestParam(value = "pageNo", defaultValue = "1")  Integer pageNo,
                                         @RequestParam(value = "size", defaultValue = "10") Integer pageSize) {
-        Page<PostVO> list = iBmsPostService.getList(new Page<>(pageNo, pageSize), tab);
+        Page<PostVO> list = iBmsPostService.getList(new Page<>(pageNo, pageSize), tab);//根据参数生成page对象
         return ApiResult.success(list);
     }
 

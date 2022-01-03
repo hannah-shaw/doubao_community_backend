@@ -99,7 +99,7 @@ public class IBmsPostServiceImpl extends ServiceImpl<BmsTopicMapper, BmsPost> im
         // 标签
         QueryWrapper<BmsTopicTag> wrapper = new QueryWrapper<>();
         wrapper.lambda().eq(BmsTopicTag::getTopicId, topic.getId());
-        Set<String> set = new HashSet<>();
+        Set<String> set = new HashSet<>();//存放到set集合里
         for (BmsTopicTag articleTag : IBmsTopicTagService.list(wrapper)) {
             set.add(articleTag.getTagId());
         }
@@ -129,10 +129,11 @@ public class IBmsPostServiceImpl extends ServiceImpl<BmsTopicMapper, BmsPost> im
 
     private void setTopicTags(Page<PostVO> iPage) {
         iPage.getRecords().forEach(topic -> {
+            //根据帖子id拿到标签集合
             List<BmsTopicTag> topicTags = IBmsTopicTagService.selectByTopicId(topic.getId());
             if (!topicTags.isEmpty()) {
                 List<String> tagIds = topicTags.stream().map(BmsTopicTag::getTagId).collect(Collectors.toList());
-                List<BmsTag> tags = bmsTagMapper.selectBatchIds(tagIds);
+                List<BmsTag> tags = bmsTagMapper.selectBatchIds(tagIds);//自带函数 传id集合 返回对应帖子集合
                 topic.setTags(tags);
             }
         });

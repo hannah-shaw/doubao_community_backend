@@ -17,7 +17,7 @@ import java.util.Set;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class IBmsTopicTagServiceImpl extends ServiceImpl<BmsTopicTagMapper, BmsTopicTag> implements IBmsTopicTagService {
-
+    //根据topicid获得topicid集合
     @Override
     public List<BmsTopicTag> selectByTopicId(String topicId) {
         QueryWrapper<BmsTopicTag> wrapper = new QueryWrapper<>();
@@ -37,6 +37,7 @@ public class IBmsTopicTagServiceImpl extends ServiceImpl<BmsTopicTagMapper, BmsT
             this.baseMapper.insert(topicTag);
         });
     }
+    //在TopicTagMapper里
     @Override
     public Set<String> selectTopicIdsByTagId(String id) {
         return this.baseMapper.getTopicIdsByTagId(id);

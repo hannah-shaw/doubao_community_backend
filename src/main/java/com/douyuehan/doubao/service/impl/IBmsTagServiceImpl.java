@@ -52,6 +52,7 @@ public class IBmsTagServiceImpl extends ServiceImpl<BmsTagMapper, BmsTag> implem
         // 获取关联的话题ID
         Set<String> ids = IBmsTopicTagService.selectTopicIdsByTagId(id);
         LambdaQueryWrapper<BmsPost> wrapper = new LambdaQueryWrapper<>();
+        //wrapper语句在Post里用id集合查出Post对象列表
         wrapper.in(BmsPost::getId, ids);
 
         return IBmsPostService.page(topicPage, wrapper);
