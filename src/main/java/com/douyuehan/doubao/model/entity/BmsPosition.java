@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 @Builder
 @Accessors(chain = true)
-@TableName("bms_position")
+@TableName("bms_position_copy1")
 @AllArgsConstructor
 @NoArgsConstructor
 

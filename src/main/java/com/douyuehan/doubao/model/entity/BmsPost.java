@@ -73,14 +73,14 @@ public class BmsPost implements Serializable {
     private Integer sectionId = 0;
 
     /**
-     * 置顶
+     * 紧急
      */
     @TableField("top")
     @Builder.Default
     private Boolean top = false;
 
     /**
-     * 加精
+     * 核实
      */
     @TableField("essence")
     @Builder.Default
