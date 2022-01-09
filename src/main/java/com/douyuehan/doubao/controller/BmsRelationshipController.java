@@ -32,7 +32,7 @@ public class BmsRelationshipController extends BaseController {
             , @PathVariable("userId") String parentId) {
         UmsUser umsUser = umsUserService.getUserByUsername(userName);
         if (parentId.equals(umsUser.getId())) {
-            ApiAsserts.fail("您脸皮太厚了，怎么可以关注自己呢 😮");
+            ApiAsserts.fail("不能关注自己 😮");
         }
         BmsFollow one = bmsFollowService.getOne(
                 new LambdaQueryWrapper<BmsFollow>()

@@ -14,11 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Tag 实现类
- *
- * @author Knox 2020/11/7
- */
+
 @Service
 public class IBmsTagServiceImpl extends ServiceImpl<BmsTagMapper, BmsTag> implements IBmsTagService {
 

@@ -12,16 +12,16 @@ import com.douyuehan.doubao.service.IBmsPostService;
 import com.douyuehan.doubao.service.IUmsUserService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;//自动把java对象转jason字符串
+import javax.annotation.Resource;//自动把java对象转json字符串
 import java.util.List;
 
 import static com.douyuehan.doubao.jwt.JwtUtil.USER_NAME;
 
 @RestController
-@RequestMapping("/billboard")//第一层路径从mapping注入
+@RequestMapping("/billboard")
 public class BmsBillboardController extends BaseController {
 
-    @Resource//依赖注入找到实现类
+    @Resource
     private IBmsBillboardService bmsBillboardService;
     @Resource
     private IBmsPostService iBmsPostService;

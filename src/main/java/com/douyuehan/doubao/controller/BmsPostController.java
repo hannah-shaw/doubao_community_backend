@@ -79,4 +79,24 @@ public class BmsPostController extends BaseController {
         return ApiResult.success(null,"删除成功");
     }
 
+    @PostMapping("/check/{id}")
+    public ApiResult<BmsPost> check(@PathVariable("id") String id) {
+
+        BmsPost byId = iBmsPostService.getById(id);
+        byId.setModifyTime(new Date());
+        byId.setEssence(true);
+        iBmsPostService.updateById(byId);
+        return ApiResult.success(null,"核实成功");
+    }
+
+    @PostMapping("/top/{id}")
+    public ApiResult<BmsPost> top(@PathVariable("id") String id) {
+
+        BmsPost byId = iBmsPostService.getById(id);
+        byId.setModifyTime(new Date());
+        byId.setTop(true);
+        iBmsPostService.updateById(byId);
+        return ApiResult.success(null,"确认成功");
+    }
+
 }

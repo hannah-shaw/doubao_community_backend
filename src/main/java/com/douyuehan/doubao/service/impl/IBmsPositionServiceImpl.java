@@ -22,6 +22,7 @@ public class IBmsPositionServiceImpl extends ServiceImpl<BmsPositionMapper
                 .description(dto.getDescription())
                 .posx(dto.getPosx())
                 .posy(dto.getPosy())
+                .minister(dto.getMinister())
                 .createTime(new Date())
                 .show(true)
                 .build();

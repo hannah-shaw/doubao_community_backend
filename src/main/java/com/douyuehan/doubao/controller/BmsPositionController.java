@@ -7,7 +7,7 @@ import com.douyuehan.doubao.model.entity.BmsPosition;
 import com.douyuehan.doubao.service.IBmsPositionService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;//自动把java对象转jason字符串
+import javax.annotation.Resource;//自动把java对象转json字符串
 import java.util.List;
 
 @RestController
